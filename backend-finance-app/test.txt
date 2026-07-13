@@ -1,0 +1,13 @@
+
+'Grocery run - Woodmans', 8500, 'expense', '2026-07-01 10:15:00', 'user_1', 'cat_groceries'
+'Paycheck', 250000, 'income', '2026-07-01 09:00:00', 'user_1', 'cat_salary'
+'Netflix subscription', 1599, 'expense', '2026-07-02 08:00:00', 'user_1', 'cat_subscriptions'
+'Coffee - Colectivo', 550, 'expense', '2026-07-03 07:45:00', 'user_1', 'cat_dining'
+'Uber ride', 1420, 'expense', '2026-07-04 21:30:00', 'user_1', 'cat_transport'
+'Freelance web project', 45000, 'income', '2026-07-05 14:00:00', 'user_1', 'cat_freelance'
+'Rent payment', 95000, 'expense', '2026-07-05 09:00:00', 'user_1', 'cat_rent'
+'Gym membership', 3000, 'expense', '2026-07-06 06:30:00', 'user_1', 'cat_fitness'
+'Amazon order - textbooks', 6250, 'expense', '2026-07-07 16:20:00', 'user_1', 'cat_shopping'
+'Dinner - Ian''s Pizza', 1875, 'expense', '2026-07-08 19:10:00', 'user_1', 'cat_dining'
+'Refund - returned item', 2200, 'income', '2026-07-09 11:00:00', 'user_1', 'cat_refund'
+'Electric bill', 4300, 'expense', '2026-07-10 08:00:00', 'user_1', 'cat_utilities'
