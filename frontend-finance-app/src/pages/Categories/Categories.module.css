@@ -21,3 +21,93 @@
     border: 1px solid var(--primary);
     border-radius: 6px;
 }
+
+.categoryWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 40%;
+}
+
+.categoryBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+    padding: 8px 12px;
+    width: 100%;
+
+    border: .5px solid var(--primary-hover);
+    border-radius: var(--radius-md);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-lg);
+}
+
+.categoryName {
+    flex: 1;
+    text-align: center;
+}
+
+.cateogryDelete {
+    margin-left: auto;
+    padding: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .15s ease;
+}
+
+.cateogryDelete:hover {
+    background-color: var(--danger);
+    color: var(--surface);
+}
+
+.cateogryDelete:active {
+    transform: scale(0.95);
+}
+
+/* ------------------ loading ------------------- */
+.skeletonText {
+    flex: 1;
+    height: 18px;
+    border-radius: 6px;
+    background: linear-gradient(
+        90deg,
+        var(--surface-hover) 25%,
+        var(--border) 50%,
+        var(--surface-hover) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite linear;
+}
+
+.skeletonIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: linear-gradient(
+        90deg,
+        var(--surface-hover) 25%,
+        var(--border) 50%,
+        var(--surface-hover) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite linear;
+}
+
+
+
+/* ------------------------------------------------- */
+
+
+
+.loader {
+    animation: spin 1s linear infinite;
+}

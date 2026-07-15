@@ -6,6 +6,8 @@ const CategoriesContext = createContext(null);
 export function CategoriesProvider({ children }) {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [adding, setAdding] = useState(false)
+    const [deletingId, setDeletingId] = useState(null)
 
     const fetchCategories = useCallback(async () => {
         setLoading(true);
@@ -19,17 +21,39 @@ export function CategoriesProvider({ children }) {
     }, [fetchCategories]);
 
     const addCategory = async (name) => {
-        const created = await api.create_category(name);
-        setCategories((prev) => [...prev, created]);
+        setAdding(true);
+        try {
+            const created = await api.create_category(name);
+            setCategories((prev) => [...prev, created]);
+        } finally {
+            setAdding(false);
+        }
     };
 
     const removeCategory = async (id) => {
-        await api.delete_category(id);
-        setCategories((prev) => prev.filter((c) => c.id !== id));
+        setDeletingId(id);
+        try {
+            await api.delete_category(id);
+
+            setCategories((prev) =>
+                prev.filter((c) => c.category_id !== id)
+            );
+        } finally {
+            setDeletingId(null);
+        }
     };
 
     return (
-        <CategoriesContext.Provider value={{ categories, loading, addCategory, removeCategory }}>
+        <CategoriesContext.Provider
+            value={{
+                categories,
+                loading,
+                adding,
+                deletingId,
+                addCategory,
+                removeCategory
+            }}
+        >
             {children}
         </CategoriesContext.Provider>
     );

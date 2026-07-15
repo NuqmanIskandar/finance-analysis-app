@@ -62,6 +62,7 @@ def create_category(name: str, user: dict = Depends(get_current_user)) -> Catego
     
     return CategoryResponse(**row)
 
+# Delete a category, need to delete also all the related transactions
 @router.delete("/{category_id}")
 def delete_category(category_id: UUID, user: dict = Depends(get_current_user)):
     category = get_category_by_id(category_id)
