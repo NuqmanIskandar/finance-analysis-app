@@ -1,0 +1,128 @@
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: var(--surface);
+    width: 100%;
+    max-width: 360px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: var(--space-2);
+    padding: 60px 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.title {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-3);
+    padding: var(--space-2);
+}
+
+.subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+/* ------------------------ Button styling ------------------------ */
+
+.form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+
+    height: 40px;
+    padding: 0 var(--space-5);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    font-size: var(--text-md);
+    font-weight: 400;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .15s ease,
+        box-shadow .2s ease;
+
+    user-select: none;
+    white-space: nowrap;
+}
+
+.submit {
+    background: var(--primary);
+    color: var(--primary-text);
+    box-shadow: var(--shadow-sm);
+}
+
+.submit:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.submit:active {
+    transform: translateY(1px);
+}
+
+.submit:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.submit:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ------------------------ Input styling ------------------------ */
+
+.form input {
+    display: inline-flex;
+    height: 40px;
+    padding: 0 var(--space-5);
+
+    background-color: var(--input-bg);
+    color: var(--text-secondary);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    font-size: var(--text-md);
+    font-weight: 400;
+}
+
+.form input:focus {
+    outline: 2px solid var(--primary-hover);
+}
+
+/* ---------------------------------------------------------------- */
+
+.switchMode {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-decoration: underline;
+}
+
+.error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+}

@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 40%;
+    padding: 15px 15px;
+
+    display: flex;
+    gap: 5px;
+}
+
+.categoryInput {
+    width: 100%;
+}
+
+.addButton {
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+}

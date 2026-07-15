@@ -1,0 +1,10 @@
+nuqman mypass123
+obot test123
+nexus hehe123
+
+
+Dashboard — the landing page after login. This is the "glanceable" view: net balance, this month's income/expense totals, a small recent-transactions list (5-10 items), maybe a "quick add transaction" form or button. Its job is to answer "how am I doing" in one glance, not to be a full ledger.
+Transactions — the full ledger. Filterable list (your list_transactions already supports start, end, category_id, type — surface all of those as filter controls), paginated or infinite-scroll, with inline delete. This is where someone goes to audit or search, not just glance.
+Categories — a simple management page. List + create + delete. Small enough that it could even be a modal/drawer off Transactions or Dashboard rather than its own route, if you want to cut a page.
+Analytics — once you build that endpoint, this is where it earns its own page: spending-by-category breakdown (pie/donut), income vs. expense over time (line/bar), maybe month-over-month trend. Don't put charts on the Dashboard — Dashboard is numbers-at-a-glance, Analytics is "let me explore."
+Auth (Login/Register) — you've got AuthGate already handling the gate; Login/Register can be one route with a toggle, or two thin routes.
