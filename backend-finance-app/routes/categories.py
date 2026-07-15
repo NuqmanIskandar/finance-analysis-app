@@ -31,7 +31,7 @@ def list_categories(user: dict = Depends(get_current_user)) -> list:
     with get_conn() as conn:
         with conn.cursor() as cur:
             cur.execute(
-                "SELECT * FROM categories WHERE user_id = %s",
+                "SELECT * FROM categories WHERE user_id = %s ORDER BY name",
                 (user.user_id,)
             )
             rows = cur.fetchall()

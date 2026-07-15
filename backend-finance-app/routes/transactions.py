@@ -25,7 +25,7 @@ class TransactionResponse(BaseModel):
     type: Literal["income", "expense"]
     transaction_date: datetime
     user_id: UUID
-    category_id: UUID
+    category_id: UUID | None   # NULL after its category is deleted (ON DELETE SET NULL)
     created_at: datetime
 
 def get_transaction_by_id(transaction_id: UUID) -> TransactionResponse | None:
@@ -68,7 +68,6 @@ def add_transaction(transaction: AddTransactionRequest, user: dict = Depends(get
                 ),
             )
             row = cur.fetchone()
-            conn.commit()
 
     return TransactionResponse(**row)
 
@@ -113,6 +112,9 @@ def list_transactions(
     if conditions:
         query += " AND " + " AND ".join(conditions)
 
+    # Newest first — the Dashboard's "recent transactions" relies on this
+    query += " ORDER BY transaction_date DESC, created_at DESC"
+
     with get_conn() as conn:
         with conn.cursor() as cur:
             # Safely execute the query with the gathered parameters
@@ -146,5 +148,4 @@ def delete_transaction(transaction_id: UUID, user: dict = Depends(get_current_us
                 "DELETE FROM transactions WHERE transaction_id = %s;",
                 (transaction_id,)
             )
-            conn.commit()
     return {"detail": "Transaction deleted"}
