@@ -1,4 +1,4 @@
-# 💳 Finance
+# Finance
 
 A personal finance web app to track income and expenses, manage categories, and visualize spending patterns.
 
