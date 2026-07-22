@@ -11,9 +11,14 @@ export function CategoriesProvider({ children }) {
 
     const fetchCategories = useCallback(async () => {
         setLoading(true);
-        const data = await api.get("/categories");
-        setCategories(data);
-        setLoading(false);
+        try {
+            const data = await api.get("/categories");
+            setCategories(data);
+        } catch {
+            // a 401 here triggers the auth:expired flow in api/client.js
+        } finally {
+            setLoading(false);
+        }
     }, []);
 
     useEffect(() => {

@@ -78,6 +78,26 @@ export const api = {
     },
     get_transaction: (transaction_id) => request(`/transactions/${transaction_id}`),
     delete_transaction: (transaction_id) => request(`/transactions/${transaction_id}`, { method: "DELETE" }),
+
+    analytics_summary: ({ start, end } = {}) => {
+        const params = new URLSearchParams();
+        if (start) params.set("start", start);
+        if (end) params.set("end", end);
+        const query = params.toString();
+        return request(`/analytics/summary${query ? `?${query}` : ""}`);
+    },
+    analytics_by_category: ({ type = "expense", start, end } = {}) => {
+        const params = new URLSearchParams({ type });
+        if (start) params.set("start", start);
+        if (end) params.set("end", end);
+        return request(`/analytics/by-category?${params.toString()}`);
+    },
+    analytics_timeline: ({ granularity = "month", start, end } = {}) => {
+        const params = new URLSearchParams({ granularity });
+        if (start) params.set("start", start);
+        if (end) params.set("end", end);
+        return request(`/analytics/timeline?${params.toString()}`);
+    },
 }
 
 export { getToken };

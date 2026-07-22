@@ -1,37 +1,72 @@
 .wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: var(--space-8);
 
-    width: 100%;
-    padding: 20px 0;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-5) var(--space-5);
+
+    border-bottom: 1px solid var(--border);
 }
 
-/* ------------ Button -------------- */
+.brand {
+    font-weight: 700;
+    font-size: var(--text-lg);
+    letter-spacing: -0.02em;
+}
 
-.navButton {
+.links {
+    display: flex;
+    gap: var(--space-1);
+    flex: 1;
+}
+
+.link {
+    padding: 6px 12px;
     border-radius: var(--radius-sm);
-    border: 2px solid var(--primary);
 
-    padding: 4px 12px;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
 
-    transition: 
-        background-color .3s ease,
-        color .3s ease,
-        transform 0.1s ease;
-
-    user-select: none;
-    white-space: nowrap;
+    transition: background-color .15s ease, color .15s ease;
 }
 
-.navButton:hover {
+.link:hover {
+    color: var(--text);
+    background-color: var(--border);
+}
+
+.active,
+.active:hover {
     background-color: var(--primary);
-    color: var(--surface);
+    color: var(--primary-text);
 }
 
-.navButton:active {
-    transform: scale(0.95);
+.signOut {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: color .15s ease, background-color .15s ease;
 }
 
-/* ----------------------------------- */
+.signOut:hover {
+    color: var(--text);
+    background-color: var(--border);
+}
+
+@media (max-width: 640px) {
+    .wrapper {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+    }
+    .links {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .signOut {
+        margin-left: auto;
+    }
+}

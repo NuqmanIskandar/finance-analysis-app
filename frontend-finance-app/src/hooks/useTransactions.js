@@ -25,7 +25,7 @@ export function useTransaction(filters) {
 
     const removeTransaction = async (id) => {
         await api.delete_transaction(id);
-        setTransactions((prev) => prev.filter((t) => t.id !== id));
+        setTransactions((prev) => prev.filter((t) => t.transaction_id !== id));
     };
 
     const addTransaction = async (transaction) => {

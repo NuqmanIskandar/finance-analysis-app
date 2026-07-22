@@ -1,20 +1,37 @@
 import styles from "./Navbar.module.css";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const links = [
+    { to: "/", label: "Dashboard" },
+    { to: "/transactions", label: "Transactions" },
+    { to: "/categories", label: "Categories" },
+    { to: "/insights", label: "Insights" },
+];
 
 const Navbar = () => {
     const { logout } = useAuth();
-    const navigate = useNavigate();
 
     return (
-        <div className={styles.wrapper}>
-            <button className={styles.navButton} onClick={logout}>Sign out</button>
-            <button className={styles.navButton} onClick={() => navigate("/")}>Dashboard</button>
-            <button className={styles.navButton} onClick={() => navigate("/categories")}>Categories</button>
-            <button className={styles.navButton} onClick={() => navigate("/transactions")}>Transactions</button>
-            <button className={styles.navButton} onClick={() => navigate("/insights")}>Insights</button>
-        </div>
-    )
-}
+        <header className={styles.wrapper}>
+            <span className={styles.brand}>Finance</span>
+            <nav className={styles.links}>
+                {links.map(({ to, label }) => (
+                    <NavLink
+                        key={to}
+                        to={to}
+                        end={to === "/"}
+                        className={({ isActive }) =>
+                            isActive ? `${styles.link} ${styles.active}` : styles.link
+                        }
+                    >
+                        {label}
+                    </NavLink>
+                ))}
+            </nav>
+            <button className={styles.signOut} onClick={logout}>Sign out</button>
+        </header>
+    );
+};
 
 export default Navbar;

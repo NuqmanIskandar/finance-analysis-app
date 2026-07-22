@@ -185,3 +185,42 @@ hr{
     background:var(--text);
     color:var(--bg);
 }
+/* ===== Page shell (shared by all routed pages) ===== */
+
+.page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-5) var(--space-12);
+}
+
+/* ===== Animation utilities =====
+   CSS Modules scope animation names, so a module file can't reference the
+   global keyframes above by name. These global classes apply them instead —
+   combine with a module class in JSX, e.g. className={`${styles.loader} spin`} */
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--surface-hover) 25%,
+        var(--border) 50%,
+        var(--surface-hover) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite linear;
+}
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

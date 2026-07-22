@@ -1,0 +1,142 @@
+.rangeBar {
+    display: inline-flex;
+    gap: 3px;
+    padding: 3px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--input-bg);
+}
+
+.range,
+.rangeActive {
+    padding: 4px 14px;
+    border-radius: 7px;
+    font-size: var(--text-sm);
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.range {
+    color: var(--text-muted);
+}
+
+.range:hover {
+    color: var(--text);
+}
+
+.rangeActive {
+    background: var(--primary);
+    color: var(--primary-text);
+}
+
+.summaryLine {
+    margin-top: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.summaryLine strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.chartGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.chartCard {
+    padding: var(--space-5);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.chartTitle {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-4);
+}
+
+.chartSkeleton {
+    height: 320px;
+    border-radius: var(--radius-md);
+}
+
+.legendText {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.breakdown {
+    margin-top: var(--space-5);
+    padding: var(--space-5);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.breakdownList {
+    display: flex;
+    flex-direction: column;
+}
+
+.breakdownRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--text-sm);
+}
+
+.breakdownRow:last-child {
+    border-bottom: none;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.breakdownName {
+    flex: 1;
+}
+
+.breakdownCount {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.breakdownTotal {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+.empty {
+    padding: var(--space-8) 0;
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.error {
+    margin-top: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--danger);
+}
+
+@media (max-width: 760px) {
+    .chartGrid {
+        grid-template-columns: 1fr;
+    }
+}

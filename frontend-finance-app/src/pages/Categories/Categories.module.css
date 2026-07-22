@@ -1,113 +1,129 @@
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.sectionTitle {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+}
+
+.hint {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    max-width: 48ch;
 }
 
 .form {
-    width: 40%;
-    padding: 15px 15px;
-
     display: flex;
-    gap: 5px;
+    gap: var(--space-2);
+    margin-top: var(--space-5);
+    max-width: 420px;
 }
 
 .categoryInput {
-    width: 100%;
+    flex: 1;
+    height: 38px;
+    padding: 0 var(--space-3);
+
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+}
+
+.categoryInput:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -1px;
 }
 
 .addButton {
-    border: 1px solid var(--primary);
-    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 var(--space-5);
+    background: var(--primary);
+    color: var(--primary-text);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+
+    transition: background-color .15s ease;
+}
+
+.addButton:hover {
+    background: var(--primary-hover);
+}
+
+.addButton:disabled {
+    opacity: .5;
+    cursor: not-allowed;
 }
 
 .categoryWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    width: 40%;
+    margin-top: var(--space-5);
+    max-width: 420px;
 }
 
 .categoryBar {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: var(--space-2);
 
-    gap: 8px;
-    padding: 8px 12px;
-    width: 100%;
+    padding: var(--space-3) var(--space-1);
+    border-bottom: 1px solid var(--border);
+}
 
-    border: .5px solid var(--primary-hover);
-    border-radius: var(--radius-md);
-    background-color: var(--surface);
-    box-shadow: var(--shadow-lg);
+.categoryBar:last-child {
+    border-bottom: none;
 }
 
 .categoryName {
     flex: 1;
-    text-align: center;
+    font-size: var(--text-sm);
+    font-weight: 500;
 }
 
-.cateogryDelete {
-    margin-left: auto;
-    padding: 4px;
-    border-radius: 8px;
-    cursor: pointer;
+.categoryDelete {
+    display: inline-flex;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
 
-    transition:
-        background-color .2s ease,
-        color .2s ease,
-        transform .15s ease;
+    transition: background-color .15s ease, color .15s ease;
 }
 
-.cateogryDelete:hover {
+.categoryDelete:hover {
     background-color: var(--danger);
     color: var(--surface);
 }
 
-.cateogryDelete:active {
-    transform: scale(0.95);
+.empty {
+    padding: var(--space-6) 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.error {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--danger);
 }
 
 /* ------------------ loading ------------------- */
 .skeletonText {
     flex: 1;
-    height: 18px;
+    height: 16px;
     border-radius: 6px;
-    background: linear-gradient(
-        90deg,
-        var(--surface-hover) 25%,
-        var(--border) 50%,
-        var(--surface-hover) 75%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 1.2s infinite linear;
 }
 
 .skeletonIcon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 6px;
-    background: linear-gradient(
-        90deg,
-        var(--surface-hover) 25%,
-        var(--border) 50%,
-        var(--surface-hover) 75%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 1.2s infinite linear;
 }
 
-
-
-/* ------------------------------------------------- */
-
-
-
 .loader {
-    animation: spin 1s linear infinite;
+    color: var(--text-muted);
 }

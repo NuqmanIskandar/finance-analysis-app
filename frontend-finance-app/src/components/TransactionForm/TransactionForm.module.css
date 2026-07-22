@@ -1,0 +1,105 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.typeToggle {
+    display: inline-flex;
+    align-self: flex-start;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--input-bg);
+    padding: 3px;
+    gap: 3px;
+}
+
+.toggle,
+.toggleActive {
+    padding: 4px 14px;
+    border-radius: 7px;
+    font-size: var(--text-sm);
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.toggle {
+    color: var(--text-muted);
+}
+
+.toggle:hover {
+    color: var(--text);
+}
+
+.toggleActive {
+    background: var(--primary);
+    color: var(--primary-text);
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 110px 150px 150px 70px;
+    gap: var(--space-2);
+}
+
+.fields input,
+.fields select {
+    height: 38px;
+    padding: 0 var(--space-3);
+
+    background-color: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+}
+
+.fields input:focus,
+.fields select:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: -1px;
+}
+
+.amount {
+    font-variant-numeric: tabular-nums;
+}
+
+.submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+    color: var(--primary-text);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+
+    transition: background-color .15s ease;
+}
+
+.submit:hover {
+    background: var(--primary-hover);
+}
+
+.submit:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.error {
+    font-size: var(--text-sm);
+    color: var(--danger);
+}
+
+
+@media (max-width: 720px) {
+    .fields {
+        grid-template-columns: 1fr 1fr;
+    }
+    .name {
+        grid-column: 1 / -1;
+    }
+    .submit {
+        grid-column: 1 / -1;
+        height: 38px;
+    }
+}
